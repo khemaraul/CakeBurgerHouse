@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateBurgersTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('burgers', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+            $table->string('type');
+            $table->string('name');
+            $table->string('cust_name');
+            //$table->int('price');
+            $table->json('extras');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('burgers');
+    }
+}
